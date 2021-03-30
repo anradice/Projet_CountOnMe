@@ -14,32 +14,32 @@ class SimpleCalcTest: XCTestCase {
     override func setUp() {
         simpleCalc = SimpleCalc()
     }
-    
+
     override func tearDown() {
         simpleCalc = nil
     }
-    
+
     func testGivenAddition_WhenTapEqual_ThenReturnCorrectResult() {
         simpleCalc.updateText("2 + 2")
-        
+
         XCTAssertEqual(simpleCalc.handleOperation(), "4.0")
     }
 
     func testGivenSubstraction_WhenTapEqual_ThenReturnCorrectResult() {
         simpleCalc.updateText("3 - 2")
-        
+
         XCTAssertEqual(simpleCalc.handleOperation(), "1.0")
     }
 
     func testGivenMultiplication_WhenTapEqual_ThenReturnCorrectResult() {
         simpleCalc.updateText("3 x 2")
-        
+
         XCTAssertEqual(simpleCalc.handleOperation(), "6.0")
     }
 
     func testGivenDivision_WhenTapEqual_ThenReturnCorrectResult() {
         simpleCalc.updateText("6 / 2")
-        
+
         XCTAssertEqual(simpleCalc.handleOperation(), "3.0")
     }
 
@@ -73,12 +73,14 @@ class SimpleCalcTest: XCTestCase {
 
     func testGivendivisionBy0_WhenTapEqual_ThenError() {
         simpleCalc.updateText("2 / 0")
-        
+
         XCTAssertTrue(simpleCalc.divisionBy0)
     }
+
     func testGivenExpressinHaveResult_WhenTapNumberButton_ThenError() {
-        simpleCalc.updateText("2 + 2 = 4")
+        simpleCalc.updateText("2 / 2 = 1.0")
         XCTAssertTrue(simpleCalc.expressionHaveResult)
+        XCTAssertFalse(simpleCalc.divisionBy0)
     }
-    
+
 }

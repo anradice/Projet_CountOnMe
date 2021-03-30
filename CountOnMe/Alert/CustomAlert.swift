@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-protocol CustomAlertProtocol{
+protocol CustomAlertProtocol {
     func createAlert(viewController: UIViewController, alert: AlertType)
 }
 
 enum AlertType {
     case newCalc, isCorrect, operators, divisionBy0
-    var message: String{
+    var message: String {
         switch self {
         case .newCalc:
             return "Démarrez un nouveau calcul !"
@@ -30,8 +30,7 @@ enum AlertType {
 }
 
 class CustomAlert: CustomAlertProtocol {
-        
-    func createAlert(viewController: UIViewController, alert: AlertType){
+    func createAlert(viewController: UIViewController, alert: AlertType) {
         let alertVC = UIAlertController(title: "Zéro!", message: alert.message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         viewController.present(alertVC, animated: true, completion: nil)

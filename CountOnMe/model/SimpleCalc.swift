@@ -44,10 +44,10 @@ class SimpleCalc {
         self.text = text
     }
 
-    func divisionOrMulti(_ elements: [String]) -> [String]{
+    func divisionOrMulti(_ elements: [String]) -> [String] {
         var temp = elements
         while temp.contains("x") || temp.contains("/") {
-            if let index = temp.firstIndex(where: {$0 == "x" || $0 == "/" } ) {
+            if let index = temp.firstIndex(where: {$0 == "x" || $0 == "/" }) {
                 let operators = temp[index]
                 guard let left = Float(temp[index - 1]) else { return [] }
                 guard let right = Float(temp[index + 1]) else { return [] }
@@ -67,7 +67,7 @@ class SimpleCalc {
 
     func handleOperation() -> String {
         var operationsToReduce = divisionOrMulti(elements)
-        
+
         // Iterate over operations while an operand still here
         while operationsToReduce.count > 1 {
             let left = Float(operationsToReduce[0])!

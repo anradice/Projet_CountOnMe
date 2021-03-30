@@ -13,9 +13,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var numberButtons: [UIButton]!
     var model = SimpleCalc()
     private var alert: CustomAlertProtocol?
-    
 
-    
     // View Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +27,14 @@ class ViewController: UIViewController, UITextViewDelegate {
         guard let numberText = sender.title(for: .normal) else {
             return
         }
-        
         if model.expressionHaveResult {
             textView.text = ""
+            model.updateText(textView.text)
         }
-        
         textView.text.append(numberText)
         model.updateText(textView.text)
     }
-    
+
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
         if model.canAddOperator {
             textView.text.append(" + ")
@@ -46,14 +43,13 @@ class ViewController: UIViewController, UITextViewDelegate {
             alert?.createAlert(viewController: self, alert: .operators)
         }
     }
-    
+
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
         if model.canAddOperator {
             textView.text.append(" - ")
             model.updateText(textView.text)
         } else {
             alert?.createAlert(viewController: self, alert: .operators)
-
         }
     }
     @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
@@ -92,10 +88,9 @@ class ViewController: UIViewController, UITextViewDelegate {
             alert?.createAlert(viewController: self, alert: .divisionBy0)
             return
         }
-        
+
         let operation = model.handleOperation()
         textView.text.append(" = \(operation)")
         model.updateText(textView.text)
     }
 }
-
