@@ -80,6 +80,12 @@ class ViewController: UIViewController, UITextViewDelegate {
             alert?.createAlert(viewController: self, alert: .isCorrect)
             return
         }
+        guard !model.expressionHaveResult else {
+            alert?.createAlert(viewController: self, alert: .newCalc)
+            textView.text = ""
+            model.updateText(textView.text)
+            return
+        }
         guard model.expressionHaveEnoughElement else {
             alert?.createAlert(viewController: self, alert: .newCalc)
             return

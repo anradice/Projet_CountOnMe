@@ -9,7 +9,7 @@
 import Foundation
 
 class SimpleCalc {
-    var text: String = ""
+    var text: String = "1 + 1 = 2"
     var elements: [String] {
         return text.split(separator: " ").map { "\($0)" }
     }
@@ -29,7 +29,7 @@ class SimpleCalc {
     var expressionHaveResult: Bool {
         return text.firstIndex(of: "=") != nil
     }
-
+// check that there is no division by 0
     var divisionBy0: Bool {
         var temp = elements
         while temp.contains("/") {
@@ -39,11 +39,11 @@ class SimpleCalc {
         }
         return false
     }
-
+// Allows to update the text of the model when the user writes
     func updateText(_ text: String) {
         self.text = text
     }
-
+// Allows to manage the priority in case of multiplication or division
     func divisionOrMulti(_ elements: [String]) -> [String] {
         var temp = elements
         while temp.contains("x") || temp.contains("/") {

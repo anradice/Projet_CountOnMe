@@ -77,7 +77,7 @@ class SimpleCalcTest: XCTestCase {
         XCTAssertTrue(simpleCalc.divisionBy0)
     }
 
-    func testGivenExpressinHaveResult_WhenTapNumberButton_ThenError() {
+    func testGivenExpressionHaveResult_WhenTapNumberButton_ThenError() {
         simpleCalc.updateText("2 / 2 = 1.0")
         XCTAssertTrue(simpleCalc.expressionHaveResult)
         XCTAssertFalse(simpleCalc.divisionBy0)
