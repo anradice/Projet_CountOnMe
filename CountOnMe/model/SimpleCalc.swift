@@ -24,11 +24,12 @@ class SimpleCalc {
 
     var canAddOperator: Bool {
         return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "/"
-    }
+        }
 
     var expressionHaveResult: Bool {
         return text.firstIndex(of: "=") != nil
     }
+
 // check that there is no division by 0
     var divisionBy0: Bool {
         var temp = elements
@@ -39,6 +40,7 @@ class SimpleCalc {
         }
         return false
     }
+
 // Allows to update the text of the model when the user writes
     func updateText(_ text: String) {
         self.text = text
@@ -57,7 +59,8 @@ class SimpleCalc {
                 } else {
                     calcul = left / right
                 }
-                temp[index - 1] = String(calcul)
+                temp[index - 1] = String(format: "%.2f", calcul)
+                
                 temp.remove(at: index + 1)
                 temp.remove(at: index)
             }
@@ -80,10 +83,11 @@ class SimpleCalc {
             case "-": result = left - right
             default: fatalError("Unknown operator !")
             }
-
+            let calcul = String(format: "%.2f", result)
             operationsToReduce = Array(operationsToReduce.dropFirst(3))
-            operationsToReduce.insert("\(result)", at: 0)
+            operationsToReduce.insert("\(calcul)", at: 0)
         }
+        
         return operationsToReduce.first!
     }
 }

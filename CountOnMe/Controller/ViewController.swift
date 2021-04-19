@@ -35,8 +35,13 @@ class ViewController: UIViewController, UITextViewDelegate {
         model.updateText(textView.text)
     }
 
+    @IBAction func tappedCommaButton(_ sender: UIButton) {
+        textView.text.append(".")
+        model.updateText(textView.text)
+    }
+
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
-        if model.canAddOperator {
+        if model.canAddOperator && !model.expressionHaveResult {
             textView.text.append(" + ")
             model.updateText(textView.text)
         } else {
@@ -45,7 +50,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
 
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
-        if model.canAddOperator {
+        if model.canAddOperator && !model.expressionHaveResult {
             textView.text.append(" - ")
             model.updateText(textView.text)
         } else {
@@ -53,7 +58,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         }
     }
     @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
-        if model.canAddOperator {
+        if model.canAddOperator && !model.expressionHaveResult {
             textView.text.append(" x ")
             model.updateText(textView.text)
         } else {
@@ -62,7 +67,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
 
     @IBAction func tappedDivisionButton(_ sender: UIButton) {
-        if model.canAddOperator {
+        if model.canAddOperator && !model.expressionHaveResult {
             textView.text.append(" / ")
             model.updateText(textView.text)
         } else {
