@@ -22,25 +22,25 @@ class SimpleCalcTest: XCTestCase {
     func testGivenAddition_WhenTapEqual_ThenReturnCorrectResult() {
         simpleCalc.updateText("2 + 2")
 
-        XCTAssertEqual(simpleCalc.handleOperation(), "4.0")
+        XCTAssertEqual(simpleCalc.handleOperation(), "4.00")
     }
 
     func testGivenSubstraction_WhenTapEqual_ThenReturnCorrectResult() {
         simpleCalc.updateText("3 - 2")
 
-        XCTAssertEqual(simpleCalc.handleOperation(), "1.0")
+        XCTAssertEqual(simpleCalc.handleOperation(), "1.00")
     }
 
     func testGivenMultiplication_WhenTapEqual_ThenReturnCorrectResult() {
         simpleCalc.updateText("3 x 2")
 
-        XCTAssertEqual(simpleCalc.handleOperation(), "6.0")
+        XCTAssertEqual(simpleCalc.handleOperation(), "6.00")
     }
 
     func testGivenDivision_WhenTapEqual_ThenReturnCorrectResult() {
         simpleCalc.updateText("6 / 2")
 
-        XCTAssertEqual(simpleCalc.handleOperation(), "3.0")
+        XCTAssertEqual(simpleCalc.handleOperation(), "3.00")
     }
 
     func testGivenTextFinishWithPlus_WhenAddOperator_ThenError() {
