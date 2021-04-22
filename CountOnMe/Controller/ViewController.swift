@@ -36,6 +36,9 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
 
     @IBAction func tappedCommaButton(_ sender: RoundedButton) {
+        guard !textView.text.contains(".") else {
+            return
+        }
         textView.text.append(".")
         model.updateText(textView.text)
     }
