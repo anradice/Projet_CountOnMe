@@ -176,7 +176,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="tappedVirguleButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="TN3-cs-CPL"/>
+                                                    <action selector="tappedCommaButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="fWd-0a-Iwy"/>
                                                 </connections>
                                             </button>
                                         </subviews>

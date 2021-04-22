@@ -60,7 +60,7 @@ class SimpleCalc {
                     calcul = left / right
                 }
                 temp[index - 1] = String(format: "%.2f", calcul)
-                
+
                 temp.remove(at: index + 1)
                 temp.remove(at: index)
             }
@@ -87,7 +87,6 @@ class SimpleCalc {
             operationsToReduce = Array(operationsToReduce.dropFirst(3))
             operationsToReduce.insert("\(calcul)", at: 0)
         }
-        
         return operationsToReduce.first!
     }
 }
